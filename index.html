@@ -1,147 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Donation Form | Hirojib Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<title>Donation Form | Hirojib Blog</title>
 
-        .container {
-            width: 90%;
-            max-width: 500px;
-            background: #ffffff;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        .banner img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 15px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .payment-options input {
-            width: auto;
-            margin-right: 5px;
-        }
-
-        .scanner img {
-            width: 100%;
-            max-width: 200px;
-            display: block;
-            margin: 10px auto;
-        }
-
-        button {
-            width: 100%;
-            background: #28a745;
-            color: white;
-            padding: 12px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #218838;
-        }
-    </style>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+}
+.banner img {
+    width: 100%;
+    border-radius: 10px;
+}
+label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+.payment-options input {
+    width: auto;
+}
+.scanner img {
+    width: 200px;
+    display: block;
+    margin: 10px auto;
+}
+button {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
 
-    <h1>Welcome to Hirojib's Vlogs 🐾</h1>
+<h1>Welcome to Hirojib's Vlogs 🐾</h1>
 
-    <!-- Dog Banner -->
-    <div class="banner">
-        <img src="banner.jpeg" alt="Dog Banner">
-    </div>
+<!-- Banner -->
+<div class="banner">
+    <img src="banner.jpeg" alt="Dog Banner">
+</div>
 
-    <form>
-        <form id="donateForm" action="https://script.google.com/macros/s/AKfycbxp-V2mxme54pCkcaLRClt08oqIS5QpitPO_t5hT2X6K2q-cgpVGetqrvD3Sjv-EKWYxw/exec--" method="post" target="hiddenFrame"></form>
+<form id="donateForm"
+action="https://script.google.com/macros/s/AKfycbxp-V2mxme54pCkcaLRClt08oqIS5QpitPO_t5hT2X6K2q-cgpVGetqrvD3Sjv-EKWYxw/exec"
+method="post"
+target="hiddenFrame">
 
-        <!-- Name -->
-        <label>Name</label>
-        <input type="text" placeholder="Enter your name" required>
+<label>Name</label>
+<input type="text" name="name" required>
 
-        <!-- Phone Number -->
-        <label>Phone Number</label>
-        <input type="tel" placeholder="Enter your phone number" required>
+<label>Phone Number</label>
+<input type="tel" name="phone" required>
 
-        <!-- Payment Options -->
-        <label>Donation Amount</label>
-        <div class="payment-options">
-            <input type="radio" name="amount"> ₹20
-            <input type="radio" name="amount"> ₹50
-            <input type="radio" name="amount"> ₹100
-        </div>
+<label>Donation Amount</label>
+<div class="payment-options">
+<input type="radio" name="amount" value="20" required> ₹20
+<input type="radio" name="amount" value="50"> ₹50
+<input type="radio" name="amount" value="100"> ₹100
+</div>
 
-        <!-- Scanner -->
-        <label>Scan & Pay</label>
-        <div class="scanner">
-            <img src="scanner.jpeg" alt="Payment Scanner">
-        </div>
+<label>Scan & Pay</label>
+<div class="scanner">
+<img src="scanner.jpeg" alt="Payment Scanner">
+</div>
 
-        <!-- Feedback -->
-        <label>Feedback</label>
-        <textarea rows="4" placeholder="Write your feedback..."></textarea>
+<label>Feedback</label>
+<textarea name="feedback" rows="4"></textarea>
 
-        <!-- Video Link -->
-        <label>Previous Video Link</label>
-        <label>Previous Video</label><br>
-
-<a href="https://youtu.be/T6qhZ6MNcQ?si=pODuA53G89Rr-ex"
-   target="_blank"
-   style="color:blue; font-weight:bold;">
+<label>Previous Video</label>
+<a href="https://youtu.be/T6qhZ6MNcQ?si=pODuA53G89Rr-ex" target="_blank">
 👉 Click here to watch previous video
 </a>
 
-        <button type="submit">Donate Now ❤️</button>
-        <p id="msg"></p>
+<button type="submit">Donate Now ❤️</button>
+<p id="msg"></p>
 
-    </form>
-    <form>
-        <form action="https://script.google.com/macros/s/AKfycbzo3hg4k_AB3UuFn2yqMefVBo2eNjF0rDA4DuuXvOMdTk7STDIubwd_vw48EkcawQN4Sg/exec" method="post">
-    </form>
+</form>
 
 </div>
+
 <iframe name="hiddenFrame" style="display:none;"></iframe>
 
 <script>
 document.getElementById("donateForm").onsubmit = function () {
   document.getElementById("msg").innerText =
-    "🙏 Thank you! Donation successful.";
+  "🙏 Thank you! Donation successful.";
 };
 </script>
 
 </body>
 </html>
-
