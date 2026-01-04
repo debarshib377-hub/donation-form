@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Donation Form</title>
+<title>Donation Form | Hirojib Vlogs</title>
 
 <style>
 body {
@@ -12,39 +12,57 @@ body {
     padding: 0;
 }
 
+/* ===== BANNER ===== */
+.banner {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.banner p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* ===== FORM CARD ===== */
 .container {
     max-width: 420px;
     background: #fff;
-    margin: 30px auto;
+    margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h2 {
-    text-align: center;
-}
-
 label {
     font-weight: bold;
+    display: block;
+    margin-top: 10px;
 }
 
 input, textarea {
     width: 100%;
     padding: 10px;
-    margin: 8px 0 15px 0;
+    margin-top: 6px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
+/* ===== AMOUNT BUTTONS ===== */
 .amount button {
     width: 100%;
     padding: 10px;
-    margin: 6px 0;
+    margin-top: 8px;
     border: none;
     border-radius: 6px;
     background: #007bff;
-    color: #fff;
+    color: white;
     font-size: 16px;
     cursor: pointer;
 }
@@ -53,6 +71,7 @@ input, textarea {
     background: #0056b3;
 }
 
+/* ===== QR ===== */
 .qr {
     text-align: center;
     margin: 15px 0;
@@ -63,6 +82,7 @@ input, textarea {
     cursor: pointer;
 }
 
+/* ===== DONATE BUTTON ===== */
 .upi-btn {
     width: 100%;
     padding: 12px;
@@ -78,19 +98,33 @@ input, textarea {
     background: #218838;
 }
 
-a {
-    text-decoration: none;
+/* ===== DISPLAY INFO ===== */
+.info {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===== BANNER ===== -->
+<div class="banner">
+    <h1>Welcome to Hirojib Vlogs 🎥</h1>
+    <p>Support us with your small donation ❤️</p>
+</div>
+
+<!-- ===== FORM ===== -->
 <div class="container">
-    <h2>Donation Form</h2>
+
+    <label>Your Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
 
     <label>Phone Number</label>
-    <input type="tel" placeholder="Enter phone number">
+    <input type="tel" id="phone" placeholder="Enter phone number">
 
     <label>Donation Amount</label>
     <div class="amount">
@@ -101,7 +135,7 @@ a {
 
     <label>Scan & Pay</label>
     <div class="qr">
-        <a href="upi://pay?pa=yourupi@okaxis&pn=Hirojib&cu=INR">
+        <a href="upi://pay?pa=rb3277886@oksbi&pn=Hirojib&cu=INR">
             <img src="scanner.jpeg" alt="Scan to Pay">
         </a>
         <p>Tap QR to open UPI app</p>
@@ -110,29 +144,46 @@ a {
     <label>Feedback</label>
     <textarea rows="3" placeholder="Your feedback"></textarea>
 
-    <p>👉 <a href="https://youtu.be/VIDEO_ID" target="_blank">
-        Click here to watch previous video
-    </a></p>
+    <p>👉 
+        <a href="https://youtu.be/VIDEO_ID" target="_blank">
+            Click here to watch previous video
+        </a>
+    </p>
 
-    <button class="upi-btn" type="button"
-        onclick="pay(0)">Donate Now ❤️</button>
+    <button class="upi-btn" type="button" onclick="showInfo()">
+        Donate Now ❤️
+    </button>
 
-    <p id="msg" style="text-align:center; margin-top:10px;"></p>
+    <!-- DISPLAY NAME & PHONE -->
+    <div class="info" id="infoBox" style="display:none;"></div>
+
 </div>
 
 <script>
 function pay(amount) {
-    let upiLink =
-        "upi://pay?pa=rb3277886@oksbi&pn=Hirojib&cu=INR";
+    let upi =
+        "upi://pay?pa=yourupi@okaxis&pn=Hirojib&am=" +
+        amount + "&cu=INR";
+    window.location.href = upi;
+}
 
-    if (amount > 0) {
-        upiLink += "&am=" + amount;
+function showInfo() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+
+    if (name === "" || phone === "") {
+        alert("Please enter Name and Phone Number");
+        return;
     }
 
-    window.location.href = upiLink;
+    document.getElementById("infoBox").style.display = "block";
+    document.getElementById("infoBox").innerHTML =
+        "<b>Name:</b> " + name + "<br>" +
+        "<b>Phone:</b> " + phone + "<br>🙏 Thank you for your support!";
 }
 </script>
 
 </body>
 </html>
+
 
