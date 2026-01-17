@@ -2,186 +2,262 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Donation | Hirojib Vlogs</title>
+<title>Donate | Hirojib's Vlogs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
+body {
     font-family: Arial, sans-serif;
-    background:#f2f2f2;
-    margin:0;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
 }
 
-.header{
-    background: linear-gradient(90deg,#ff416c,#ff4b2b);
-    color:white;
-    padding:15px;
-    text-align:center;
+.container {
+    max-width: 520px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.container{
-    max-width:400px;
-    margin:20px auto;
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+h1 {
+    text-align: center;
 }
 
-.banner img{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:15px;
+p {
+    text-align: center;
+    color: #555;
 }
 
-label{
-    font-weight:bold;
-    display:block;
-    margin-top:10px;
+.banner img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
 }
 
-input, textarea{
-    width:100%;
-    padding:8px;
-    margin-top:5px;
-    border:1px solid #ccc;
-    border-radius:5px;
+label {
+    font-weight: bold;
+    margin-top: 12px;
+    display: block;
 }
 
-.amount button{
-    width:100%;
-    margin-top:8px;
-    padding:10px;
-    background:#007bff;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-size:16px;
-    cursor:pointer;
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
-.amount button:hover{
-    background:#0056b3;
+.amount-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
-.qr{
-    text-align:center;
-    margin-top:15px;
+.amount-buttons button {
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #e0e0e0;
 }
 
-.qr img{
-    width:200px;
+.amount-buttons button.active {
+    background: #4caf50;
+    color: #fff;
 }
 
-.youtube{
-    text-align:center;
-    margin-top:10px;
+.scan {
+    text-align: center;
+    margin: 20px 0;
 }
 
-.youtube a{
-    text-decoration:none;
-    color:#d63384;
+.scan img {
+    width: 200px;
+    cursor: pointer;
+    border: 2px dashed #4caf50;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.donate{
-    margin-top:15px;
+.donate-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
-.donate button{
-    width:100%;
-    padding:12px;
-    background:#28a745;
-    color:white;
-    border:none;
-    border-radius:5px;
-    font-size:18px;
-    cursor:pointer;
+.donate-btn:hover {
+    background: #43a047;
 }
 
-.thankyou{
-    display:none;
-    text-align:center;
-    color:green;
-    font-size:20px;
-    margin-top:15px;
+.records {
+    margin-top: 25px;
+}
+
+.records h3 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+.links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #0066cc;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-    <h2>Welcome to Hirojib's Vlogs 🐶</h2>
-    <p>Support us with your small donation</p>
-</div>
-
 <div class="container">
 
-    <!-- DOG DONATION BANNER -->
-    <div class="banner">
-        <img src="banner.jpeg" alt="Dog Donation Banner">
-    </div>
+<!-- 1. Welcome text -->
+<h1>Welcome to Hirojib's Vlogs</h1>
+<p>Support us with your small donation ❤️</p>
 
-    <!-- NAME -->
-    <label>Your Name</label>
-    <input type="text" id="name" placeholder="Enter your name">
+<!-- 2. Banner image -->
+<div class="banner">
+    <img src="banner.jpeg" alt="Donation Banner">
+</div>
 
-    <!-- PHONE -->
-    <label>Phone Number</label>
-    <input type="number" id="phone" placeholder="Enter phone number">
+<!-- 3. Name -->
+<label>Name</label>
+<input type="text" id="name">
 
-    <!-- DONATION AMOUNT -->
-    <label>Donation Amount</label>
-    <div class="amount">
-        <button onclick="pay(20)">Donate ₹20</button>
-        <button onclick="pay(50)">Donate ₹50</button>
-        <button onclick="pay(100)">Donate ₹100</button>
-    </div>
+<!-- 4. Phone number -->
+<label>Phone Number</label>
+<input type="tel" id="phone">
 
-    <!-- QR SCANNER -->
-    <div class="qr">
-        <p><b>Scan & Pay</b></p>
+<!-- 5. Donation amount buttons -->
+<label>Donation Amount</label>
+<div class="amount-buttons">
+    <button onclick="setAmount(20)">₹20</button>
+    <button onclick="setAmount(50)">₹50</button>
+    <button onclick="setAmount(100)">₹100</button>
+</div>
+
+<!-- 6,7,8 Scan & Pay -->
+<div class="scan">
+    <h3>Scan & Pay</h3>
+    <a href="upi://pay?pa=rb3277886@oksbi&pn=Hirojib%27s%20Vlogs" target="_blank">
         <img src="scanner.jpeg" alt="UPI QR">
-        <p>Tap button to open UPI app</p>
-    </div>
+    </a>
+    <p>Click QR to open UPI</p>
+</div>
 
-    <!-- FEEDBACK -->
-    <label>Feedback</label>
-    <textarea placeholder="Your feedback"></textarea>
+<!-- 10 Feedback -->
+<label>Feedback</label>
+<textarea id="feedback" rows="3"></textarea>
 
-    <!-- YOUTUBE LINK -->
-    <div class="youtube">
-        👉 <a href="https://youtu.be/T6qthZ6MNcQ?si=B_vxJXVYKvXkkwuk" target="_blank">
-        Watch previous video
-        </a>
-    </div>
+<!-- 11 Previous video link -->
+<div class="links">
+    <a href="https://youtu.be/T6qthZ6MNcQ?si=B_vxJXVYKvXkkwuk" target="_blank">
+        ▶ Watch Previous Videos
+    </a>
+</div>
 
-    <!-- DONATE BUTTON -->
-    <div class="donate">
-        <button onclick="pay(50)">Donate Now ❤️</button>
-    </div>
+<!-- 12 Donate now -->
+<button class="donate-btn" onclick="saveDonation()">Donate Now</button>
 
-    <!-- THANK YOU -->
-    <div class="thankyou" id="thankyou">
-        🙏 Thank You for Supporting Dogs!
-    </div>
+<!-- 9 Stored data list -->
+<div class="records">
+    <h3>Donation Records</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Amount</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody id="recordList"></tbody>
+    </table>
+</div>
 
 </div>
 
 <script>
-function pay(amount){
-    let upiId = "rb3277886@oksbi";   // 🔴 CHANGE THIS
-    let name = document.getElementById("name").value || "Hirojib Vlogs";
+let selectedAmount = "";
 
-    let upiLink = 
-    "upi://pay?pa=" + upiId +
-    "&pn=" + name +
-    "&am=" + amount +
-    "&cu=INR";
-
-    window.location.href = upiLink;
-
-    document.getElementById("thankyou").style.display="block";
+function setAmount(amount) {
+    selectedAmount = amount;
+    document.querySelectorAll(".amount-buttons button")
+        .forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
 }
+
+function saveDonation() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let feedback = document.getElementById("feedback").value;
+
+    if (!name || !phone || !selectedAmount) {
+        alert("Please fill all required details!");
+        return;
+    }
+
+    let donations = JSON.parse(localStorage.getItem("donations")) || [];
+
+    donations.push({
+        name,
+        phone,
+        amount: "₹" + selectedAmount,
+        feedback
+    });
+
+    localStorage.setItem("donations", JSON.stringify(donations));
+    loadRecords();
+    alert("Donation details saved successfully!");
+}
+
+function loadRecords() {
+    let donations = JSON.parse(localStorage.getItem("donations")) || [];
+    let list = document.getElementById("recordList");
+    list.innerHTML = "";
+
+    donations.forEach(d => {
+        let row = `<tr>
+            <td>${d.name}</td>
+            <td>${d.phone}</td>
+            <td>${d.amount}</td>
+            <td>${d.feedback}</td>
+        </tr>`;
+        list.innerHTML += row;
+    });
+}
+
+loadRecords();
 </script>
 
 </body>
